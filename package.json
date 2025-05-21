@@ -1,0 +1,19 @@
+{
+  "name": "challage2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "start":"nodemon milestone_2_challenges.js",
+   "format":"prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "-": "^0.0.1",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
