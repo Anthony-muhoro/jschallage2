@@ -81,7 +81,13 @@ const differenceEvenOdd = (numbers) => {
   console.log(difference);
 };
 differenceEvenOdd([1, 2, 3, 4, 5, 6]);
-
+// Challenge 9: Count Truthy
+function countTruthy(obj) {
+  console.log("Truthy count is:", Object.values(obj).filter(Boolean).length);
+  return Object.values(obj).filter(Boolean).length;
+}
+countTruthy({ a: 0, b: "hello", c: false, d: 42, e: null });
+countTruthy({ a: 0, b: true });
 // challage 10 : Average of Numbers
 const average = (numbers) => {
   const allNums = numbers.reduce((num, sum) => (num > 0 ? num + sum : sum), 0);
@@ -96,7 +102,7 @@ const average = (numbers) => {
 average([2, 3, 4, 5, 8, 23]);
 average([2, 4, 6, 8]);
 average([]);
-//ToDO check why It does not work for the fisrt index in array
+//ToDO  check why It does not work for the fisrt index in array
 // // challage 11: Linear Search
 // function linearSearch(numbers,num){
 //   const number = numbers.find((number)=>number==num)
@@ -110,7 +116,7 @@ average([]);
 // linearSearch([3,5,6,7],6)
 // linearSearch([3,5,6,7],3)
 // linearSearch([2,3,4,5],6)
-
+// challege 11 : Linear Search
 function linearSearch(numbers, num) {
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] === num) {
@@ -133,3 +139,61 @@ function reverseLinearSearch(arr, value) {
   console.log(-1);
   return -1;
 }
+// Challenge 13: Linear Search All Indices
+const linearSearchAll = (arr, index) => {
+  const indices = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === index) indices.push(i);
+  }
+  console.log(indices);
+  return indices;
+};
+linearSearchAll([2, 3, 6, 3, 5, 3, 4, 3], 3);
+
+// Challenge 14: Count Occurrences
+const countOccurrences = (items) => {
+  const counts = {};
+  for (const item of items) {
+    counts[item] = (counts[item] || 0) + 1;
+  }
+  console.log(counts);
+  return counts;
+};
+countOccurrences(["apple", "banana", "apple", "orange", "banana", "apple"]);
+countOccurrences(["techno", "iphone", "iphone", "samsung", "iphone", "itel"]);
+// Challenge 15: Remove Duplicates
+const removeDuplicates = (arr) => {
+  const unique = [];
+  const seen = new Set();
+  for (const item of arr) {
+    if (!seen.has(item)) {
+      seen.add(item);
+      unique.push(item);
+    }
+  }
+  console.log(unique);
+  return unique;
+};
+removeDuplicates([1, 2, 3, 2, 4, 1, 5]);
+removeDuplicates([10, 11, 20, 20, 10, 20, 6]);
+
+// Challenge 16: Most Frequent
+const mostFrequent = (arr) => {
+  const frequencyMap = {};
+  let maxCount = 0;
+  let mostFrequentItem = arr[0];
+
+  for (const item of arr) {
+    frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+    if (frequencyMap[item] > maxCount) {
+      maxCount = frequencyMap[item];
+      mostFrequentItem = item;
+    }
+  }
+
+  console.log(mostFrequentItem);
+  return mostFrequentItem;
+};
+mostFrequent([1, 2, 2, 3, 3, 3, 4]);
+// TODO later try returning the tie
+mostFrequent([0, 0, 0, 1, 1, 1]);
